@@ -23,9 +23,28 @@ async function symbolicate(sourceMap, crash) {
 
 const express = require('express');
 const app = express();
+const aws = require('aws-sdk');
+
+async function produceMessage(MessageBody) {
+  const sqs = new aws.SQS({
+    endpoint: config.SQS_ENDPOINT,
+    region: 'some-region',
+  });
+
+  const queueUrl = await sqs.getQueueUrl({
+    QueueName: config.SYMBOLICATE_QUEUE_NAME,
+  }).promise();
+
+  return sqs.sendMessage({
+    QueueUrl: queueUrl.QueueUrl,
+    MessageBody,
+  }).promise()
+}
 
 app.get("/symbolicate", async (req, res, next) => {
   const result = await symbolicate(config.SOURCE_MAP_PATH, config.CRASH_FILE)
+
+  await produceMessage(result.stdout);
 
   res.json(result);
 });
