@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:vlnevyhosteny/nodejs-ios-symbolication.git",
   "author": "Vladimir Nevyhosteny <vnevyhosteny@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
