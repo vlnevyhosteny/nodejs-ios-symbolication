@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-ios-symbolication",
+  "version": "1.0.0",
+  "description": "iOS crash symbolification in NodeJS.",
+  "main": "index.js",
+  "repository": "git@github.com:vlnevyhosteny/nodejs-ios-symbolication.git",
+  "author": "Vladimir Nevyhosteny <vnevyhosteny@gmail.com>",
+  "license": "MIT"
+}
