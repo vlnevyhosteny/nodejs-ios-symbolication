@@ -86,3 +86,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+crash.crash
+
+KeweSL.app.dSYM/Contents/
