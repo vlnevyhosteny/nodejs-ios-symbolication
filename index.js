@@ -28,7 +28,7 @@ const aws = require('aws-sdk');
 async function produceMessage(MessageBody) {
   const sqs = new aws.SQS({
     endpoint: config.SQS_ENDPOINT,
-    region: 'some-region',
+    region: config.SQS_REGION,
   });
 
   const queueUrl = await sqs.getQueueUrl({
